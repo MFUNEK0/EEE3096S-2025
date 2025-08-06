@@ -393,26 +393,32 @@ void TIM16_IRQHandler(void)
 				break;
 		}
 }
+// Function to execute 'Sparkle Mode' — randomly lights up LEDs and turns them off one by one
 void run_sparkle_mode(void)
 {
+    // Generate a random 8-bit value where each bit represents an LED (1 = ON, 0 = OFF)
     uint8_t sparkle = rand() % 256;
 
+    // Step 1: Ensure all LEDs are initially turned OFF
     for (int i = 0; i < 8; i++) {
         LL_GPIO_ResetOutputPin(LED_Ports[i], LED_Pins[i]);
     }
 
+    // Step 2: Turn ON LEDs based on the bits set in the sparkle pattern
     for (int i = 0; i < 8; i++) {
         if (sparkle & (1 << i)) {
             LL_GPIO_SetOutputPin(LED_Ports[i], LED_Pins[i]);
         }
     }
 
+    // Step 3: Hold the ON state for a random duration between 100 and 1500 ms
     HAL_Delay(100 + rand() % 1401);
 
+    // Step 4: Turn OFF the LEDs that were ON, one by one, with random delay between each
     for (int i = 0; i < 8; i++) {
         if (sparkle & (1 << i)) {
             LL_GPIO_ResetOutputPin(LED_Ports[i], LED_Pins[i]);
-            HAL_Delay(rand() % 1500);
+            HAL_Delay(rand() % 1500); // Delay between 0 and 1499 ms
         }
     }
 }
