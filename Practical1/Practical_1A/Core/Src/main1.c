@@ -128,7 +128,7 @@ int main(void)
 	              if (delay_toggle) {
 	                  __HAL_TIM_SET_AUTORELOAD(&htim16, 500 - 1);
 	              } else {
-	                  __HAL_TIM_SET_AUTORELOAD(&htim16, 1000 - 1);
+	                  __HAL_TIM_SET_AUTORELOAD(&htim16, 1500 - 1);
 	              }
 	              HAL_Delay(200);  // crude debounce
 	          }
