@@ -108,7 +108,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // TODO: Start timer TIM16
-
+  srand(HAL_GetTick());
   HAL_TIM_Base_Start_IT(&htim16);
 
   /* USER CODE END 2 */
