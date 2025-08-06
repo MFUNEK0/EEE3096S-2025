@@ -60,7 +60,7 @@ const GPIO_TypeDef* LED_Ports[8] = {
 	    LED0_GPIO_Port, LED1_GPIO_Port, LED2_GPIO_Port, LED3_GPIO_Port,
 	    LED4_GPIO_Port, LED5_GPIO_Port, LED6_GPIO_Port, LED7_GPIO_Port
 	};
-//Amos was here
+
 
 /* USER CODE END PV */
 
